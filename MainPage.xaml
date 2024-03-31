@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="FileEncryptor.MainPage">
+
+	<ScrollView>
+		<VerticalStackLayout
+			Padding="30,0"
+			Spacing="25">
+
+			<Label
+				Text="文件加密器"
+				Style="{StaticResource Headline}"
+				Margin="0,50" />
+
+			<Entry x:Name="PasswordInput" IsPassword="True" Placeholder="请输入密码" />
+
+			<Button
+				x:Name="SavePassword"
+				Text="保存密码"
+				Clicked="OnSavePasswordClicked"
+				HorizontalOptions="FillAndExpand" />
+
+			<Button
+				x:Name="GetPassword"
+				Text="读取密码"
+				Clicked="OnGetPasswordClicked"
+				HorizontalOptions="FillAndExpand" />
+
+			<Button
+				x:Name="Encrypt"
+				Text="加密/解密"
+				Clicked="OnEncryptClicked"
+				Margin="0,30"
+				HorizontalOptions="Fill" />
+		</VerticalStackLayout>
+	</ScrollView>
+
+</ContentPage>
