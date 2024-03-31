@@ -1,6 +1,6 @@
-﻿using CommunityToolkit.Maui.Alerts;
+﻿using System.Text;
+using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Storage;
-using System.Text;
 
 namespace FileEncryptor;
 
@@ -17,7 +17,7 @@ public partial class MainPage : ContentPage {
 			var result = await FilePicker.Default.PickAsync();
 			if (result != null) {
 				if (result.FileName.EndsWith(".lcenc", StringComparison.OrdinalIgnoreCase)) { // 解密
-					// LCEN(4) + 扩展名长度(1) + 扩展名(0~255) + 初始化向量(16) + 加密数据(16+)
+																							  // LCEN(4) + 扩展名长度(1) + 扩展名(0~255) + 初始化向量(16) + 加密数据(16+)
 					try {
 						using var file = await result.OpenReadAsync().ConfigureAwait(false);
 						var bytes = new byte[255];
@@ -150,4 +150,3 @@ public partial class MainPage : ContentPage {
 		MainThread.BeginInvokeOnMainThread(() => SavePassword.Text = "保存密码");
 	}
 }
-
